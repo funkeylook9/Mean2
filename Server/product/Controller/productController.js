@@ -24,7 +24,7 @@ const GetProduct = (req,res)=>{
      Product.findAll({})
      .then(data=>{
          res.json(data)
-         console.log(data.length);
+         
      })
      .catch(err=>{
          console.log("Error During Creating Product",err);
