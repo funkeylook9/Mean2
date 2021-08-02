@@ -1,0 +1,41 @@
+<ux-page-header header="Product Stock" [items]="items" [condensed]="condensed" [iconMenus]="iconMenus"></ux-page-header>
+<h2 class="text-center my-3"></h2>
+<div class="container">
+  <table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Rate</th>
+        <th>Color</th>
+        <th>Size</th>
+        <th>Quntity</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Products;index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.rate}}</td>
+        <td>{{product.Color}}</td>
+        <td>{{product.size}}</td>
+        <td>{{product.qty}}</td>
+
+        <td>
+          <ux-icon name="edit-filled" size="20px" [flipHorizontal]="false" [flipVertical]="false">
+          </ux-icon>
+        </td>
+        <td>
+          <ux-icon name="trash" size="20px" [flipHorizontal]="false" [flipVertical]="false">
+          </ux-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ux-pagination [(ngModel)]="page" [totalItems]="totalItems" [itemsPerPage]="totalLimit" [maxSize]="5"
+    (numPages)="totalPages" (pageChange)="NextPage($event)">
+  </ux-pagination>
+</div>

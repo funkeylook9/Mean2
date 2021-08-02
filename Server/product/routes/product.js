@@ -13,5 +13,4 @@ router.put('/:id',productController.UpdateProduct);
 router.delete('/:id',productController.DeleteProduct);
 
 
-
 module.exports = router;
