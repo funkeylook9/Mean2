@@ -1,6 +1,6 @@
 const model = require('../models')
 const Product = model.Product
-console.log(Product);
+const SignUp = model.Signup
 
 const AddProduct = (req,res)=>{
    let data = {
@@ -72,10 +72,25 @@ const GetProductbyID = (req,res)=>{
         console.log("Error During Creating Product",err);
     });
 };
+
+const PostLoginData = async(req,res)=>{
+
+}
+const PostSignupData = async(req,res)=>{
+    let data = {
+        name:req.body.name,
+        email:req.body.email,
+        contact:req.body.contact,
+        password:req.body.password,
+        conformPassword:req.body.conformPassword
+    }
+    let signupData = await SignUp.create(data);
+}
 module.exports = {
     AddProduct,
     GetProduct,
     UpdateProduct,
     DeleteProduct,
-    GetProductbyID
+    GetProductbyID,
+    PostSignupData
 }
