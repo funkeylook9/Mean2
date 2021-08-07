@@ -1,10 +1,11 @@
 var express = require('express');
 var path = require('path');
+var event = require('events')
+var eventEmitter =  new event.EventEmitter()
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var http = require('http').Server(app);
 var cors = require('cors')
-
 
 var indexRouter = require('./routes/index');
 var ProductRouter = require('./routes/product');
@@ -30,6 +31,13 @@ app.use('/', indexRouter);
 app.use('/Product', ProductRouter);
 app.use('/User', SignupRouter);
 
+ var myEventHandler = ()=>{
+    console.log('event firirng');
+}
+
+eventEmitter.on('fire',myEventHandler);
+
+eventEmitter.emit('fire')
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //   next(createError(404));
