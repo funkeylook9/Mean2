@@ -1,3 +1,81 @@
+$parrot:greenyellow;
+$label:rgba(23, 103, 139, 0.904);
+$midium: 50%;
+$small: 30%;
+$pink:rgb(253, 8, 110);
+
+@mixin block($heding,$pera) { // for no repet code
+    padding:5px;
+    background-color: rgb(191, 243, 250);
+    border:2px solid rgb(168, 163, 163);
+    border-radius:5px;
+    width:$small;
+    margin:5px;
+    
+    h2{
+        color:$heding;
+        font-weight:bold;
+    }
+
+    p{
+        color:$pera;
+    }
+
+}
 .invalid{
     color: red;
+}
+h1{
+    color:$parrot;
+    font-weight:bold;
+    text-align: center;
+}
+
+
+form{
+    width: $small;
+    margin: auto;
+div{
+
+    label{
+color:$label
+    }
+}
+button{//nested type
+    background-color:$parrot;
+    &:hover{
+        background-color:darken($parrot,15%);
+    }
+}
+}
+.block{//use mixin
+    @include block($pink,rgba(17, 184, 17, 0.877));
+    
+}
+
+.box-1{
+    width: $midium;
+    padding:5px;
+    border:2px solid black;
+    margin:5px;
+    border-radius: 10px;
+    background-color:palegreen;
+
+    h3{
+        color:violet;
+        text-align: center;
+        font-weight: bold;
+        font-size: 35px;
+
+
+    }
+    p{
+        color:rgb(238, 117, 4);
+        font-size: 25px;
+
+    }
+}
+
+.box-2{
+    @extend .box-1;
 }

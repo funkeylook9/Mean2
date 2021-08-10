@@ -1,31 +1,87 @@
 <div class="container">
     <h1>User Registration.</h1>
-    <form #login ="ngForm" (ngSubmit)="submit(login)">
+    <form #login="ngForm" (ngSubmit)="submit(login)">
         <div class="form-group">
             <label for="firstname">First Name</label><br>
-            <input #name = "ngModel" required minlength ="3" type="text" name ="firstname" class="form-control" ngModel>
-            <div *ngIf="name.touched && name.invalid"class="invalid">Invalid Name</div>
+            <input #name="ngModel" required minlength="3" type="text" name="firstname" class="form-control" ngModel>
+            <div *ngIf="name.touched && name.invalid" class="invalid">Invalid Name</div>
         </div>
         <div class="form-group">
             <label for="lastname">last Name</label><br>
-            <input #lname = "ngModel" required minlength ="3" type="text" name ="lastname" class="form-control" ngModel>
-            <div *ngIf="lname.touched && lname.invalid"class="invalid">Invalid Name</div>
+            <input #lname="ngModel" required minlength="3" type="text" name="lastname" class="form-control" ngModel>
+            <div *ngIf="lname.touched && lname.invalid" class="invalid">Invalid Name</div>
         </div>
         <div class="form-group">
             <label for="email">Email</label><br>
-            <input #email = "ngModel" required  type="text" name ="email" class="form-control" ngModel>
-            <div *ngIf="email.touched && email.invalid"class="invalid">Invalid Email</div>
+            <input #email="ngModel" required type="text" name="email" class="form-control" ngModel>
+            <div *ngIf="email.touched && email.invalid" class="invalid">Invalid Email</div>
         </div>
         <div class="form-group">
             <label for="contact">Contact</label><br>
-            <input #contact = "ngModel" required minlength ="10" type="number" name ="contact" class="form-control" ngModel>
-            <div *ngIf="contact.touched && contact.invalid"class="invalid">Invalid Contact</div>
+            <input #contact="ngModel" required minlength="10" type="number" name="contact" class="form-control" ngModel>
+            <div *ngIf="contact.touched && contact.invalid" class="invalid">Invalid Contact</div>
         </div>
         <div class="form-group">
             <label for="firstname">Password</label><br>
-            <input #password = "ngModel" required minlength ="3" type="password" name ="password" class="form-control" ngModel>
-            <div *ngIf="password.touched && password.invalid"class="invalid">Invalid Password</div>
+            <input #password="ngModel" required minlength="3" type="password" name="password" class="form-control"
+                ngModel>
+            <div *ngIf="password.touched && password.invalid" class="invalid">Invalid Password</div>
         </div>
-        <button class="btn btn-warning" type = "submit">Submit</button>
+        <button class="btn btn-warning my-2 " type="submit">Submit</button>
     </form>
+</div>
+
+<div class="d-flex flex-row">
+    <div class="container block">
+        <h2>Data-1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+    <div class="container block">
+        <h2>Data-2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+    <div class="container block">
+        <h2>Data-3</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+</div>
+<div class="d-flex flex-row">
+    <div class="container block">
+        <h2>Data-4</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+    <div class="container block">
+        <h2>Data-5</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+    <div class="container block">
+        <h2>Data-6</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+</div>
+<div  class="d-flex flex-row">
+    <div class="box-1">
+        <h3>Data1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
+    <div class="box-2">
+        <h3>Data2</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
+            pariatur?</p>
+    </div>
 </div>
