@@ -1,13 +1,9 @@
 const model = require('../models')
-
+let jwt = require('jsonwebtoken');
+global.config = require('../config/jwtConfig');
 const SignUp = model.Signup
 
-
-
-
-
-
-const PostLoginData = async (req, res) => {
+const PostLoginData = async (req, res,next) => {
     let data = {
         email: req.body.email,
         password: req.body.password,
@@ -17,7 +13,18 @@ const PostLoginData = async (req, res) => {
         return v.email == data.email && v.password == data.password
     })
     if (Filter.length){
-        res.json(`User ${data.email} Login Successfully`)
+
+        let token = await jwt.sign(data,global.config.secretKey,{
+            algorithm:global.config.algorithm,
+            expiresIn: '1m'
+        });
+
+        res.json({
+            message:"Login SuccessFul",
+            jwtoken : token
+        
+        })
+        
     }else{
         res.json('Email or Password incorrect')
     }
@@ -52,3 +59,30 @@ module.exports = {
     PostSignupData,
     PostLoginData
 }
+
+/* Post users Login. */
+// router.post('/login', function (req, res, next) {
+//     let userdata = {
+//     username: req.body.username,
+//     password: req.body.password
+//     };
+    
+//     //Go to server for user varificarion
+//     if (userdata.username == "shashangka" && userdata.password == "12345") {
+//     let token = jwt.sign(userdata, global.config.secretKey, {
+//     algorithm: global.config.algorithm,
+//     expiresIn: '1m'
+//     });
+    
+//     res.status(200).json({
+//     message: 'Login Successful',
+//     jwtoken: token
+//     });
+//     }
+//     else {
+//     res.status(401).json({
+//     message: 'Login Failed'
+//     });
+//     }
+//     });
+    

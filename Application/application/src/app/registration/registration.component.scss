@@ -35,6 +35,11 @@ h1{
 form{
     width: $small;
     margin: auto;
+    input{
+        &::placeholder{color:rgba(0, 0, 0, 0.651);}
+        border:none;
+        border-bottom: 3px solid grey;
+    }
 div{
 
     label{
