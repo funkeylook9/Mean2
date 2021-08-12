@@ -32,7 +32,7 @@ h1{
 }
 
 
-form{
+.form-1{form{
     width: $small;
     margin: auto;
     input{
@@ -51,6 +51,7 @@ button{//nested type
     &:hover{
         background-color:darken($parrot,15%);
     }
+}
 }
 }
 .block{//use mixin

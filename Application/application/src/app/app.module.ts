@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProdctService } from './Services/prodct.service';
 import { RegistrationComponent } from './registration/registration.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     RegistrationComponent,
+    NavbarComponent,
   ],
   imports: [
     AccessibilityModule,

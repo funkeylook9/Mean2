@@ -3,7 +3,7 @@ var router = express.Router();
 var signupController = require('../Controller/SignupController')
 
 /* GET users listing. */
-// router.get('/',productController.GetProduct);
+router.get('/signup',signupController.GetSignupData);
 // router.get('/:id',productController.GetProductbyID);
 
 router.post('/signup',signupController.PostSignupData);

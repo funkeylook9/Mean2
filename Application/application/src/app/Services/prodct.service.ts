@@ -14,4 +14,14 @@ export class ProdctService {
     const url = `${this.baseurl}/product`
     return this.http.get(url)
   }
+
+  getUSers(): Observable<any>{
+    const url = `${this.baseurl}/User/signup`
+    return this.http.get(url)
+  }
+  addUSers(data:any): Observable<any>{
+    const url = `${this.baseurl}/User/signup`
+    return this.http.post(url,data)
+  }
 }
+

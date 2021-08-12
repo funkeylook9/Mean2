@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Product_Stock</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/product']" routerLinkActive="router-link-active" >Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/scss']" tabindex="-1" aria-disabled="true">Registraton</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-lg btn-outline-info rounded-top" (click)="open(content)">Login/Signup</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<ng-template #content let-modal>
+    <!-- Login Form -->
+
+    <div class="modal-header">
+        <h3 class="modal-title text-center text-success" id="modal-basic-title"><strong>{{loginMode? 'User Login':'User Registration'}}</strong>
+        </h3>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="modal.close()"></button>
+    </div>
+    <div class="modal-body p-2 pt-0">
+        <div class="container" *ngIf="loginMode">
+            <form [formGroup]="signinForm" (ngSubmit)="signin()">
+                <div class="input-group mb-2 mt-1 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5">Email</span>
+                    <input type="text" class="form-control p-1" formControlName="Email"
+                        [ngClass]="{ 'is-invalid': submitted && f1.Email.errors }">
+                    <div *ngIf="submitted && f1.Email.errors" class="invalid-feedback">
+                        <div *ngIf="f1.Email.errors.required">Email is Required</div>
+                        <div *ngIf="f1.Email.errors.email">Email must be a valid email address</div> -->
+                    </div>
+                </div>
+                <div class="input-group mb-2 col-4 border border-success border-1 rounded-3 ">
+                    <span class="input-group-text p-1 fs-5">Password</span>
+                    <input type="password" class="form-control p-1" formControlName="Password"
+                        [ngClass]="{ 'is-invalid': submitted && f1.Password.errors }">
+                    <div *ngIf="submitted && f1.Password.errors" class="invalid-feedback">
+                        <div *ngIf="f1.Password.errors.required">Password is Required</div>
+                        
+                    </div>
+                </div>
+
+                <div class="input-group mb-2 col-4 ">
+                    <button
+                        class="btn btn-outline-danger border border-danger border-1 rounded-3 d-block p-1 w-100 form-control fs-5"(click)="modal.close()"
+                        type="submit">Signin</button>
+                </div>
+            </form>
+        </div>
+        <!-- Signup Form -->
+        <div class="container" *ngIf="!loginMode">
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="input-group mb-2 mt-1 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5">Name</span>
+                    <input type="text" class="form-control p-1" formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name Required</div>
+                    </div>
+                </div>
+                <!-- <div class="input-group mb-2 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5">Address</span>
+                    <input type="text" class="form-control p-1" formControlName="address"
+                        [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">Address Required</div>
+                    </div>
+                </div> -->
+                <div class="input-group mb-2 mt-3 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5">Email</span>
+                    <input type="email" class="form-control p-1" formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is Required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="input-group mb-2 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5">Contact</span>
+                    <input type="number" class="form-control p-1" formControlName="contact"
+                        [ngClass]="{ 'is-invalid': submitted && f.contact.errors }">
+                    <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+                        <div *ngIf="f.contact.errors.required">Contact is Required</div>
+                        <div *ngIf="f.contact.errors.minlength">contact must be at least 10 characters</div>
+                    </div>
+                </div>
+                <div class="input-group mb-2 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5">Password    </span>
+                    <input type="password" class="form-control p-1" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is Required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div class="input-group mb-2 col-4 border border-success border-1 rounded-3">
+                    <span class="input-group-text p-1 fs-5"> Conform_Password</span>
+                    <input type="password" class="form-control p-1" formControlName="conformPassword"
+                        [ngClass]="{ 'is-invalid': submitted && f.conformPassword.errors }">
+                    <div *ngIf="submitted && f.conformPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.conformPassword.errors.required"> Conform Password is Required</div>
+                        <div *ngIf="f.conformPassword.errors.minlength"> Conform Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div class="input-group mb-2 col-4 ">
+                    <button
+                        class="btn btn-outline-primary d-block p-1 w-100 form-control fs-5 border border-primary border-1 rounded-3"
+                        type="submit">SignUp</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal-footer">
+        <p><a class='btn fs-6 text-info border-bottom' style="cursor:pointer" (click)='onModeSwitch()'
+                href="#">{{loginMode? 'Do not have Account -> Click Here to Go Signup page':'Alredy have an Account?
+                Click here To Login Page'}}</a> </p>
+    </div>
+</ng-template>
+
+
+<pre>{{ closeResult }}</pre>

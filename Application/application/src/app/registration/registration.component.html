@@ -1,14 +1,18 @@
-<div class="container">
-    <h1>User Registration.</h1>
+<div class="container form-1">
+    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Login/Signup</button> -->
+
+    <h1>User Registration Demo.</h1>
     <form #login="ngForm" (ngSubmit)="submit(login)">
         <div class="form-group">
-            <input #name="ngModel" placeHolder="First Name"required minlength="3" type="text" name="firstname" class="form-control" ngModel>
-            <div *ngIf="name.touched && name.invalid" class="invalid">Invalid Name</div>
+            <input #name="ngModel" placeHolder="First Name" required minlength="3" type="text" name="firstname"
+                class="form-control" ngModel>
+            <div *ngIf="name.touched && name.invalid" class="invalid">Invalid Firsr Name</div>
         </div>
         <div class="form-group">
             <br>
-            <input #lname="ngModel" placeHolder="Last Name" required minlength="3" type="text" name="lastname" class="form-control" ngModel>
-            <div *ngIf="lname.touched && lname.invalid" class="invalid">Invalid Name</div>
+            <input #lname="ngModel" placeHolder="Last Name" required minlength="3" type="text" name="lastname"
+                class="form-control" ngModel>
+            <div *ngIf="lname.touched && lname.invalid" class="invalid">Invalid Last Name</div>
         </div>
         <div class="form-group">
             <br>
@@ -17,17 +21,18 @@
         </div>
         <div class="form-group">
             <br>
-            <input #contact="ngModel"  placeHolder="Contact"required minlength="10" type="number" name="contact" class="form-control" ngModel>
+            <input #contact="ngModel" placeHolder="Contact" required minlength="10" type="number" name="contact"
+                class="form-control" ngModel>
             <div *ngIf="contact.touched && contact.invalid" class="invalid">Invalid Contact</div>
         </div>
         <div class="form-group">
             <br>
-            <input #password="ngModel" placeHolder="Password" required minlength="3" type="password" name="password" class="form-control"
-                ngModel>
+            <input #password="ngModel" placeHolder="Password" required minlength="3" type="password" name="password"
+                class="form-control" ngModel>
             <div *ngIf="password.touched && password.invalid" class="invalid">Invalid Password</div>
         </div>
-            <br>
-            <button class="btn btn-warning my-2 " type="submit">Submit</button>
+        <br>
+        <button class="btn btn-warning my-2 " type="submit">Submit</button>
     </form>
 </div>
 
@@ -65,7 +70,7 @@
             pariatur?</p>
     </div>
 </div>
-<div  class="d-flex flex-row">
+<div class="d-flex flex-row">
     <div class="box-1">
         <h3>Data1</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptas dignissimos qui non earum
@@ -85,3 +90,11 @@
             pariatur?</p>
     </div>
 </div>
+
+
+
+
+
+
+<div class="b-example-divider"></div>
+
